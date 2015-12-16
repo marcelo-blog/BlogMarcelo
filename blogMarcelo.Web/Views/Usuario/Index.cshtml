@@ -1,0 +1,31 @@
+﻿@model List<BlogMarcelo.DB.Classes.Usuario>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@section Scripts
+{
+     <script src="@Url.Content( "~/scripts/Views/Usuarios/Usuario.js")"></script>   
+ }
+
+<h2>Usuários</h2>
+
+
+<div>
+    @Html.ActionLink("Novo usuário", "CadastrarUsuario", "Usuario")
+ </div>
+
+@foreach (var item in Model)
+{
+    <h2>@item.Login</h2>
+
+    <div>
+          <div class="icone-editar div-imagem"></div>
+          @Html.ActionLink("Editar","EditarUsuario","Usuario", new { id = item.Id },null) 
+          <div class="icone-excluir div-imagem"></div>
+          @Html.ActionLink("Excluir", "ExcluirUsuario", "Usuario", new { id = item.Id }, new { @class = "excluir-usuario" })
+    </div>
+
+
+}
