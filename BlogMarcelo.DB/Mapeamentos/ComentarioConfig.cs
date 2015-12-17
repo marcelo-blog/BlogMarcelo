@@ -46,7 +46,11 @@ namespace BlogMarcelo.DB.Mapeamentos
               .HasColumnName("NOME")
               .HasMaxLength(100)
               .IsRequired();
-            
+
+            Property(x => x.DataHora)
+            .HasColumnName("DATAHORA")
+            .IsRequired();
+
             HasRequired(x => x.Post)
              .WithMany()
              .HasForeignKey(x => x.IdPost);
